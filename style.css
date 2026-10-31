@@ -59,9 +59,10 @@ img { display: block; max-width: 100%; }
 .divider { width: min(72%, 330px); margin-top: 14px; }
 
 /* 2. photo */
-.photo { padding: 0 6px; position: relative; }
+.photo { position: relative; margin-top: -10px; }
 .photo img {
-  width: 100%; max-width: 560px; height: auto; margin: 0 auto;
+  /* wider than the screen: the crop has empty margins, so the framed photo itself fills the width */
+  width: min(116vw, 660px); max-width: none; height: auto; position: relative; left: 50%; transform: translateX(-50%);
   -webkit-mask-image: linear-gradient(transparent, #000 14%, #000 90%, transparent);
   mask-image: linear-gradient(transparent, #000 14%, #000 90%, transparent);
 }
