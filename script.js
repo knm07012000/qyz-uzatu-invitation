@@ -42,7 +42,7 @@
       addPerson: '+ Тағы біреу қосу',
       send: 'Жіберу',
       sending: 'Жіберілуде…',
-      again: 'Жауапты қайта жіберу',
+      again: 'Жауапты өзгерту',
       closed: 'Жауап қабылдау аяқталды.',
       thanksYes: 'Рақмет!',
       thanksYesText: 'Сізді тойымызда күтеміз!',
@@ -88,7 +88,7 @@
       addPerson: '+ Add another person',
       send: 'Send',
       sending: 'Sending…',
-      again: 'Send the answer again',
+      again: 'Change my answer',
       closed: 'RSVPs are now closed.',
       thanksYes: 'Thank you!',
       thanksYesText: 'We look forward to seeing you at our celebration!',
@@ -220,11 +220,44 @@
     $('closed').hidden = false;
   }
 
+  // Random id kept in this browser; the server uses it to update the same row instead of adding a new one.
+  var memId = '';
+  function guestId() {
+    var fresh = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : Math.random().toString(36).slice(2) + Date.now().toString(36);
+    try {
+      var id = localStorage.getItem('guestId');
+      if (!id) { id = fresh; localStorage.setItem('guestId', id); }
+      return id;
+    } catch (e) {
+      return memId || (memId = fresh);
+    }
+  }
+
+  function setRadio(name, value) {
+    form.querySelectorAll('input[name=' + name + ']').forEach(function (r) { r.checked = r.value === value; });
+  }
+
+  function prefill(d) {
+    if (!d) return;
+    var yes = d.attending === true;
+    setRadio('attending', yes ? 'yes' : 'no');
+    setRadio('party', yes ? (d.companions.length ? 'group' : 'alone') : '');
+    nameInput.value = d.name;
+    companionsEl.innerHTML = '';
+    d.companions.forEach(function (c) {
+      addCompanion();
+      companionsEl.lastChild.querySelector('input').value = c;
+    });
+    syncForm();
+  }
+
   $('again').addEventListener('click', function () {
+    var saved = null;
+    try { saved = JSON.parse(localStorage.getItem('rsvpData')); } catch (e) {}
     lastAnswer = null;
-    try { localStorage.removeItem('rsvp'); } catch (e) {}
     $('done').hidden = true;
     form.hidden = false;
+    if (saved && typeof saved.name === 'string' && Array.isArray(saved.companions)) prefill(saved);
   });
 
   form.addEventListener('submit', function (e) {
@@ -251,15 +284,19 @@
     msg.textContent = '';
 
     // text/plain keeps this a "simple" request, so the browser skips the CORS preflight Apps Script can't answer.
+    var payload = { name: name, attending: a === 'yes', companions: companions };
     fetch(RSVP_URL, {
       method: 'POST',
-      body: JSON.stringify({ name: name, attending: a === 'yes', companions: companions, lang: lang })
+      body: JSON.stringify({ id: guestId(), name: name, attending: payload.attending, companions: companions, lang: lang })
     })
       .then(function (r) { return r.json(); })
       .then(function (res) {
         if (res.ok) {
           lastAnswer = a;
-          try { localStorage.setItem('rsvp', a); } catch (e) {}
+          try {
+            localStorage.setItem('rsvp', a);
+            localStorage.setItem('rsvpData', JSON.stringify(payload));
+          } catch (e) {}
           showDone(a);
         } else if (res.error === 'closed') {
           showClosed();
