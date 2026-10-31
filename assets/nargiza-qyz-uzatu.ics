@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Qyz Uzatu Nargiza//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:qyz-uzatu-nargiza-20261225@invitation
+DTSTAMP:20261031T000000Z
+DTSTART:20261225T120000Z
+DTEND:20261225T190000Z
+SUMMARY:Qyz Uzatu — Nargiza
+LOCATION:“Diana-1” тойханасы\, Бесағаш ауылы\, Райымбек батыр көшесі\, 143
+DESCRIPTION:Қыз ұзату тойы. Той иелері: Мұхтар мен Майра.\nhttps://2gis.kz/almaty/firm/70000001023578560
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:Qyz Uzatu — Nargiza\, ертең 17:00
+END:VALARM
+END:VEVENT
+END:VCALENDAR

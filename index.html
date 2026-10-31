@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="kk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Qyz Uzatu — Nargiza</title>
+  <meta name="description" content="Қыз ұзату тойына шақыру · Nargiza · 25.12.2026">
+  <meta property="og:title" content="Qyz Uzatu — Nargiza">
+  <meta property="og:description" content="Қыз ұзату тойына шақыру · 25.12.2026 · 17:00">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#F6F2E9">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Cormorant+SC:wght@500;700&family=Italiana&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="lang" role="group" aria-label="Language">
+  <button type="button" data-lang="kk" class="on">ҚАЗ</button>
+  <button type="button" data-lang="en">ENG</button>
+</div>
+
+<!-- 1. Hero -->
+<header class="hero">
+  <div class="col">
+    <img class="deco tl" src="assets/h-tl.jpg" alt="">
+    <img class="deco tr" src="assets/h-tr.jpg" alt="">
+    <img class="deco bl" src="assets/h-bl.jpg" alt="">
+    <img class="deco br" src="assets/h-br.jpg" alt="">
+    <div class="hero-text">
+      <h1>Qyz<br>Uzatu</h1>
+      <p class="hero-name">Nargiza</p>
+      <img class="divider" src="assets/divider.jpg" alt="">
+    </div>
+  </div>
+</header>
+
+<!-- 2. Photo -->
+<section class="photo">
+  <img src="assets/photo-frame.jpg" alt="Nargiza" width="880" height="640">
+</section>
+
+<!-- 3. Invitation text -->
+<section class="invite reveal">
+  <p data-i18n="inv1">Құрметті қонақтар!</p>
+  <p data-i18n="inv2">Ардақты ағайын-туыс, құда-жекжат, дос-жаран!</p>
+  <p><span data-i18n="inv3">Сіздерді аяулы қызымыз</span><br><strong class="big" data-i18n="inv4">Наргизаның</strong></p>
+  <p><span data-i18n="inv5">ақ босаға аттап, жаңа өмірге қадам басар</span><br><strong class="big" data-i18n="inv6">Ұзату тойына</strong></p>
+  <p data-i18n="inv7">арналған ақ дастарханымызға қадірлі қонағы болуға шақырамыз!</p>
+  <div class="hosts">
+    <p class="small" data-i18n="hostsLabel">Құрметпен той иелері:</p>
+    <p class="hosts-names" data-i18n="hosts">Мұхтар мен Майра</p>
+  </div>
+</section>
+
+<!-- 4. Date -->
+<section class="date reveal">
+  <h2 data-i18n="dateTitle">Той күні:</h2>
+  <svg class="cal" viewBox="0 0 220 200" role="img" aria-label="25">
+    <g stroke="#1d1d1d" stroke-width="7" stroke-linecap="round" fill="none">
+      <path d="M62 10v34M86 10v34M110 10v34M134 10v34M158 10v34M38 10v34M182 10v34" stroke-width="6"/>
+      <rect x="22" y="40" width="176" height="150" rx="3"/>
+      <path d="M22 70h176"/>
+    </g>
+    <text x="110" y="162" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-weight="700" font-size="98" fill="#1d1d1d">25</text>
+  </svg>
+  <p class="date-line" data-i18n="dateLine">Желтоқсан 2026 жылы</p>
+  <p class="date-line" data-i18n="timeLine">Сағат 17:00-де</p>
+
+  <div class="countdown" id="countdown" hidden>
+    <div><b id="cd-d">0</b><span data-i18n="cdD">күн</span></div>
+    <div><b id="cd-h">0</b><span data-i18n="cdH">сағат</span></div>
+    <div><b id="cd-m">0</b><span data-i18n="cdM">минут</span></div>
+    <div><b id="cd-s">0</b><span data-i18n="cdS">секунд</span></div>
+  </div>
+
+  <div class="cal-btns">
+    <a class="btn" id="gcal" target="_blank" rel="noopener" data-i18n="addGoogle">Google Calendar</a>
+    <a class="btn ghost" href="assets/nargiza-qyz-uzatu.ics" download data-i18n="addIcs">Apple / Outlook (.ics)</a>
+  </div>
+</section>
+
+<!-- 5. Venue + RSVP -->
+<section class="venue">
+  <div class="col">
+    <img class="deco vbl" src="assets/v-bl.jpg" alt="">
+    <img class="deco vbr" src="assets/v-br.jpg" alt="">
+
+    <div class="venue-text reveal">
+      <p data-i18n="venueLabel">Мекен-жайымыз:</p>
+      <p data-i18n="venueAddr">Бесағаш ауылы, Райымбек батыр көшесі, 143-үй</p>
+      <p class="venue-name" data-i18n="venueName">“Diana-1” тойханасы</p>
+      <a class="pin" href="https://2gis.kz/almaty/firm/70000001023578560?m=77.022899%2C43.293203%2F15.84" target="_blank" rel="noopener">
+        <img src="assets/pin.jpg" alt="2GIS" width="90" height="78">
+        <span data-i18n="open2gis">2GIS-те ашу</span>
+      </a>
+    </div>
+
+    <form id="rsvp" class="rsvp reveal" novalidate>
+      <h2 data-i18n="rsvpTitle">Келесіз бе?</h2>
+
+      <div class="choices" role="radiogroup">
+        <label><input type="radio" name="attending" value="yes"><span data-i18n="yes">Иә, келемін</span></label>
+        <label><input type="radio" name="attending" value="no"><span data-i18n="no">Келе алмаймын</span></label>
+      </div>
+
+      <div id="nameBlock" hidden>
+        <label class="lbl" for="name" data-i18n="yourName">Есіміңіз:</label>
+        <input id="name" name="name" type="text" maxlength="100" autocomplete="name">
+      </div>
+
+      <div id="partyBlock" hidden>
+        <p class="lbl" data-i18n="partyQ">Жалғыз келесіз бе?</p>
+        <div class="choices" role="radiogroup">
+          <label><input type="radio" name="party" value="alone"><span data-i18n="alone">Жалғызбын</span></label>
+          <label><input type="radio" name="party" value="group"><span data-i18n="group">Бірге келеміз</span></label>
+        </div>
+      </div>
+
+      <div id="companionsBlock" hidden>
+        <p class="lbl" data-i18n="companionsLbl">Бірге келетіндердің есімдері:</p>
+        <div id="companions"></div>
+        <button type="button" id="addCompanion" class="link" data-i18n="addPerson">+ Тағы біреу қосу</button>
+      </div>
+
+      <p id="msg" class="msg" role="status" aria-live="polite"></p>
+      <button type="submit" id="send" class="btn solid" hidden data-i18n="send">Жіберу</button>
+    </form>
+
+    <div id="done" class="rsvp done" hidden>
+      <h2 id="doneTitle"></h2>
+      <p id="doneText"></p>
+      <button type="button" id="again" class="link" data-i18n="again">Жауапты қайта жіберу</button>
+    </div>
+
+    <div id="closed" class="rsvp done" hidden>
+      <p data-i18n="closed">Жауап қабылдау аяқталды.</p>
+    </div>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
