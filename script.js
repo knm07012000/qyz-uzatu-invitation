@@ -12,6 +12,8 @@
 
   var T = {
     kk: {
+      invTitle: 'Тойға шақыру',
+      closing: 'Ақ тілектеріңізбен келіп, қуанышымызға ортақ болыңыздар!',
       inv1: 'Құрметті қонақтар!',
       inv2: 'Ардақты ағайын-туыс, құда-жекжат, дос-жаран!',
       inv3: 'Сіздерді аяулы қызымыз',
@@ -58,6 +60,8 @@
       remove: 'Жою'
     },
     en: {
+      invTitle: 'Invitation',
+      closing: 'Come with your warm wishes and share our joy!',
       inv1: 'Dear guests!',
       inv2: 'Dear relatives, in-laws and friends!',
       inv3: 'We invite you to be our honored guest at the',
